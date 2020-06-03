@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+    <title>081417158江道宽</title>
+    <link rel="short icon" href="Resource/icon.png">
+    <link rel="stylesheet" href="ExternalStyle.css">
+    <script type="text/javascript" src="Utils.js"></script>
+
+    <style>
+        article{
+            margin: 20px;
+            padding-bottom: 50px;
+        }
+        h3{
+            color: red;
+            padding-bottom: 10px;
+            font-size: 18px;
+            border-bottom: 1px solid #dddddd;
+        }
+        h4{
+            font-size: 14px;
+        }
+        p{
+            font-size: 12px;
+            text-indent: 2em;
+            line-height: 2em;
+        }
+    </style>
+</head>
+<body>
+
+<header><span>平台风采</span></header>
+
+<section class="second_section">
+    <img src="Resource/banner4.png" alt="这网速还去上网？爷笑了：）">
+</section>
+
+<article>
+
+    <h3 id="title"></h3>
+    <h4 id="subTitle"></h4>
+    <p id="info"></p>
+
+</article>
+
+<script>
+    var title = document.getElementById("title");
+    var subTitle = document.getElementById("subTitle");
+    var info = document.getElementById("info");
+
+    var s_title = window.localStorage.getItem("title");
+    var s_subTitle = window.localStorage.getItem("subTitle");
+    var s_info = window.localStorage.getItem("info");
+
+    if(s_info){
+        title.innerHTML = s_title;
+        subTitle.innerHTML = s_subTitle;
+        info.innerHTML = s_info;
+    }else{
+        requestMethod('get','aboutus','',function (obj) {
+            title.innerHTML = obj.title;
+            subTitle.innerHTML = obj.subTitle;
+            info.innerHTML = obj.info;
+            window.localStorage.setItem("title",obj.title);
+            window.localStorage.setItem("subTitle",obj.subTitle);
+            window.localStorage.setItem("info",obj.info);
+        })
+    }
+</script>
+
+<footer>
+    <a href="DropletService.html"> <img src="Resource/nav10.png" alt=""> <span>小滴服务</span> </a>
+    <a href="BusinessProject.html"> <img src="Resource/nav20.png" alt=""> <span>企业项且</span> </a>
+    <a href="ServiceProcess.html"> <img src="Resource/nav30.png" alt=""> <span>服务流程</span> </a>
+    <a href=""> <img src="Resource/nav41.png" alt=""> <span style="color: red">平台风采</span> </a>
+    <a href="MyDroplet.html"> <img src="Resource/nav50.png" alt=""> <span>我的小滴</span> </a>
+</footer>
+
+</body>
+</html>
