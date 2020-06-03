@@ -34,7 +34,20 @@
 <header><span>小滴服务</span></header>
 
 <section class="second_section">
-    <img src="Resource/banner-1.png" alt="这网速还去上网？爷笑了：）">
+    <img id="bannerImg" src="Resource/banner-1.png">
+    <script>
+        var imgNum = 1;
+        var bannerImg = document.getElementById("bannerImg");
+        function changeImg() {
+            imgNum++;
+            if(imgNum > 3){
+                imgNum = 1;
+            }
+            bannerImg.src = "Resource/banner-"+imgNum+".png";
+        }
+        setInterval(changeImg,2000);
+    </script>
+
 </section>
 
 <section style="margin-top: -5px;padding-bottom: 45px;" >
